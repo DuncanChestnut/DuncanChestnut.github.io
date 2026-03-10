@@ -162,8 +162,10 @@ a:hover {
 }
 
 .banner-home { background-image: url('../img/hdd.jpg'); }
-/* .banner-about { background-image: url('../img/about.jpg'); } */
+.banner-about { background-image: url('../img/about.jpg'); }
+.banner-hobbies { background-image: url('../img/hobbies.jpg'); }
 .banner-hardware { background-image: url('../img/hardware.jpg'); }
+.banner-arch { background-image: url('../img/arch.png'); }
 
 /* =========================================
    4. LAYOUT & CARDS
@@ -291,4 +293,14 @@ a.card-link:hover .card-cta {
     .col-half, .col-third { width: 100%; }
     .banner-text h1 { font-size: 2em; }
     .navbar { text-align: left; padding-left: 10px; }
+}
+
+.watermark {
+  position: fixed;        /* stays on screen */
+  bottom: 10px;           /* distance from bottom */
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(100, 100, 100, 0.3); /* transparent watermark effect */
+  pointer-events: none;   /* prevents blocking clicks */
 }

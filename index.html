@@ -1,45 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Duncan Chestnut</title>
+    <title>Duncan Chestnut - Home</title>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">   
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon"/>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <h1>Welcome to My Personal Website</h1>
-    </header>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I’m Duncan Chestnut. I’m a Software Engineer. This is my personal website where you can find information about my projects and contact details.</p>
-        <!-- <img src="images/your-image.jpg" alt="Your Image"> -->
-    </section>
-    
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of the projects I’ve been working on:</p>
+    <div class="navbar">
         <ul>
-            <li><a href="#">Project 1</a> - Description of Project 1.</li>
-            <li><a href="#">Project 2</a> - Description of Project 2.</li>
-            <li><a href="#">Project 3</a> - Description of Project 3.</li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="homelab.html">Homelab</a></li>
+            <li><a href="arch.html">Arch</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
         </ul>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>If you’d like to get in touch, feel free to email me at <a href="mailto:your-email@example.com">your-email@example.com</a>.</p>
-    </section>
-    
-    <footer>
-        <p>&copy; 2024 Duncan Chestnut. All rights reserved.</p>
-    </footer>
+        <div class="nav-icon-right">
+            <a href="https://github.com/DuncanChestnut" target="_blank">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="header-container home">
+        <div class="banner banner-home"></div>
+        <div class="banner-text">
+            <h1>Duncan Chestnut</h1>
+            <h2>Computer Science & Software Engineering</h2>
+        </div>
+    </div>
+
+    <div class="content-container">
+       <p>
+            My name is Duncan Chestnut and I am a Computer Scientist specialized in Containerization, modeling and simulation, and Linux administration.
+            I hold a Master's degree in Computer Science from the University of Dayton and currently employed as a Software Engineer at NextGen Federal Systems since 2017.
+        </p>
+        <h2>Explore My Work</h2>
+        <div class="row">
+            <div class="col-third">
+                <a href="homelab.html" class="card-link">
+                    <div class="card">
+                        <h3>Homelab</h3>
+                        <p>A tour of my homelab and other tech related projects: self-hosted services, 3D printers, home automation.</p>
+                        <span class="card-cta">View Projects &rarr;</span> 
+                    </div>
+                </a>
+            </div>
+            <div class="col-third">
+                <a href="arch.html" target="_blank" class="card-link">
+                    <div class="card">
+                        <h3>I use Arch, btw</h3>
+                        <p>Obligatory mention that I use Arch Linux.</p>
+                        <span class="card-cta">Explore Arch &rarr;</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-third">
+                <a href="https://github.com/DuncanChestnut" target="_blank" class="card-link">
+                    <div class="card">
+                        <h3>Github Profile</h3>
+                        <p>Source code for my active projects and public archives.</p>
+                        <span class="card-cta">View Code &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <h2>Technical Skills</h2>
+        <div class="row">
+            <div class="col-half">
+                <div class="card">
+                    <h3>Systems & Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>Linux (Arch / RHEL)</li>
+                        <li>Containerization (Docker / Podman)</li>
+                        <li>Virtualization (Proxmox VE)</li>
+                        <li>WireGuard VPN</li>
+                        <li>HAProxy</li>
+                        <li>3D Printing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-half">
+                <div class="card">
+                    <h3>Development & Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>Java</li>
+                        <li>Shell Scripting</li>
+                        <li>CMake</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="watermark">
+        © 2026 Duncan Chestnut. All rights reserved.
+    </div>
 </body>
 </html>
