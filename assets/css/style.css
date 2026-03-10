@@ -1,0 +1,294 @@
+/* =========================================
+   1. BASICS
+   ========================================= */
+* { box-sizing: border-box; }
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scroll from banner scaling */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #e0e0e0;
+    background: #181818;
+}
+
+/* GLOBAL LINKS: GDuncan text with a solid blue underline */
+a {
+    color: #ccc;           /* Matches body text so links flow naturally */
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: #68a4ff;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #68a4ff;
+    text-decoration-color: rgba(104, 164, 255, 0.3);
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 3.5em;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.navbar ul {
+    margin: 0 auto; padding: 0; list-style: none;
+    display: inline-block;
+}
+
+.navbar li { float: left; }
+
+.navbar a {
+    display: block;
+    line-height: 3.5em;
+    padding: 0 1.5em;
+    color: white;          /* Override global gDuncan */
+    font-weight: bold;
+    text-decoration: none; /* No underline in navbar */
+}
+
+.navbar a:hover, .navbar a.active { background-color: rgba(255, 255, 255, 0.15); }
+
+/* Github Icon Container */
+.nav-icon-right {
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    height: 100%;        /* Fill navbar height */
+    display: flex;       /* Use Flexbox for alignment */
+    align-items: center; /* Perfect vertical center */
+    padding-right: 15px; /* Add breathing room from the edge */
+}
+
+.nav-icon-right a {
+    display: flex;       /* Make link a flex container too */
+    align-items: center;
+    padding: 0 10px;     /* Clickable area width */
+    height: 100%;
+    /* No underline needed for the icon */
+    text-decoration: none; 
+    border-bottom: none;
+}
+
+.nav-icon-right svg {
+    fill: white;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.nav-icon-right a:hover svg {
+    opacity: 1;
+}
+
+/* =========================================
+   3. BANNER & HEADER
+   ========================================= */
+/* Creates a positioning context for the banner so we can center content relative to this area */
+.header-container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden; /* Clips the blurred banner edges */
+    background: #181818;
+}
+
+.header-container.home {
+    height: 35vh;
+    min-height: 250px;
+}
+
+.banner {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    
+    /* Scale up slightly so the blurred edges don't show white borders */
+    transform: scale(1.05); 
+    -webkit-transform: scale(1.05);
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    
+    /* Offset to visually center the text in the visible space below the navbar */
+    margin-top: 1.75em; 
+    
+    width: 90%; max-width: 1000px;
+    text-align: center;
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    pointer-events: none;
+}
+
+.banner-text h1 {
+    font-size: 2.5em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+    .banner-text h1 { font-size: 4em; }
+}
+
+.banner-text h2 {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-top: 0.5em;
+    color: #ddd;
+}
+
+.banner-home { background-image: url('../img/hdd.jpg'); }
+/* .banner-about { background-image: url('../img/about.jpg'); } */
+.banner-hardware { background-image: url('../img/hardware.jpg'); }
+
+/* =========================================
+   4. LAYOUT & CARDS
+   ========================================= */
+.content-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2em 1.5em;
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin: 40px 0 20px 0;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+p { line-height: 1.6; margin-bottom: 1.5em; color: #ccc; }
+
+/* Grid System */
+.row {
+    display: -webkit-flex; 
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-half, .col-third {
+    padding: 0 15px;
+    margin-bottom: 20px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.col-half { width: 50%; }
+.col-third { width: 33.33%; }
+
+/* Card System */
+.card {
+    background: #222;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+    
+    /* Ensures cards in the same row are equal height */
+    -webkit-flex: 1; 
+    flex: 1;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.card h3 { 
+    margin-top: 0; 
+    color: #68a4ff; 
+}
+
+/* Links inside cards inherit the Global Link Style (GDuncan + Blue Underline) */
+
+.card ul { 
+    padding-left: 20px; 
+    color: #ccc; 
+    margin-top: 0; 
+}
+
+.card li { 
+    margin-bottom: 12px; 
+    line-height: 1.6;    
+}
+
+/* Home Page Card Links */
+/* Wraps the whole card, so we must remove the global underline */
+a.card-link { 
+    display: -webkit-flex; 
+    display: flex; 
+    -webkit-flex: 1; 
+    flex: 1; 
+    text-decoration: none; 
+    color: #ccc; 
+}
+
+a.card-link .card:hover {
+    background: #2a2a2a;
+    transform: translateY(-3px);
+    border-color: #68a4ff; 
+}
+
+/* "View Specs" text at the bottom */
+.card-cta {
+    color: #68a4ff;
+    font-weight: bold;
+    margin-top: auto; 
+    display: block;
+    padding-top: 15px; 
+}
+
+a.card-link:hover .card-cta {
+    text-decoration: underline;
+}
+
+/* Skill Badges */
+.skill-list { list-style: none; padding: 0; margin: 0; }
+.skill-list li {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin: 0 10px 10px 0;
+    font-size: 0.9em;
+    border: 1px solid #444;
+}
+
+/* =========================================
+   5. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .col-half, .col-third { width: 100%; }
+    .banner-text h1 { font-size: 2em; }
+    .navbar { text-align: left; padding-left: 10px; }
+}
