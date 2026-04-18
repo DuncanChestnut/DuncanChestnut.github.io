@@ -1,0 +1,31 @@
+{
+  "name": "duncanchestnut-github-io",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "dev": "webpack serve --config ./src/client/webpack.dev.js",
+    "build": "webpack --config ./src/client/webpack.prod.js",
+    "build:server": "webpack --config ./src/server/webpack.server.js",
+    "start": "node ./dist/server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && gh-pages -d ./dist/client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DuncanChestnut/DuncanChestnut.github.io.git"
+  },
+  "keywords": [
+    "threejs"
+  ],
+  "bugs": {
+    "url": "https://github.com/DuncanChestnut/DuncanChestnut.github.io/issues"
+  },
+  "homepage": "https://github.com/DuncanChestnut/DuncanChestnut.github.io#readme",
+  "author": "Duncan Chestnut",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "three": "^0.157.0"
+  }
+}
